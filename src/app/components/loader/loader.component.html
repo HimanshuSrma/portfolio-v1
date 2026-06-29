@@ -1,0 +1,28 @@
+<div class="loader-root" [class.exit]="exiting()">
+  <div class="absolute inset-0 grid-backdrop opacity-50"></div>
+  <div class="terminal w-[min(90vw,560px)] p-0 relative z-10">
+    <div class="terminal-header">
+      <span class="terminal-dot bg-red-500"></span>
+      <span class="terminal-dot bg-yellow-500"></span>
+      <span class="terminal-dot bg-green-500"></span>
+      <span class="ml-3 font-mono text-xs text-primary-300">himmanshu&#64;portfolio: ~</span>
+    </div>
+    <div class="p-6 min-h-[260px]">
+      <ng-container *ngFor="let l of visibleLines()">
+        <p class="font-mono text-xs sm:text-sm text-primary-100 mb-1">{{ l }}</p>
+      </ng-container>
+      <p *ngIf="done()" class="font-mono text-sm text-accent-400 mt-3">✓ Himmanshu Sharma — ready.</p>
+
+      <div class="mt-6">
+        <div class="flex items-center justify-between font-mono text-[10px] text-primary-300 mb-1">
+          <span>loading…</span>
+          <span>{{ progress() }}%</span>
+        </div>
+        <div class="w-full h-1 bg-primary-900/40 overflow-hidden rounded-full">
+          <div class="h-full bg-gradient-to-r from-primary-500 to-secondary-500 transition-all duration-300"
+               [style.width.%]="progress()"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

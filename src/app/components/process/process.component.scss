@@ -1,0 +1,63 @@
+:host { display: block; }
+
+.process-grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+}
+
+.process-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.step-badge {
+  font-size: 2.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00f5ff, #7b2fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.step-card {
+  flex: 1;
+  position: relative;
+}
+
+.step-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.15), rgba(123, 47, 255, 0.15));
+  border: 1px solid rgba(0, 245, 255, 0.25);
+  color: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.step-connector {
+  display: none;
+  position: absolute;
+  color: var(--c-text-dim);
+
+  @media (min-width: 1280px) {
+    display: inline-flex;
+    top: 50%;
+    right: -22px;
+    transform: translateY(-50%) rotate(-90deg);
+    z-index: 2;
+  }
+}

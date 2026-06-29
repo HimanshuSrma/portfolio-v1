@@ -1,0 +1,18 @@
+:host { display: block; }
+
+.loader-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(ellipse at center, #0d0d14 0%, #050507 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity .7s ease, transform .7s ease;
+}
+.loader-root.exit {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}

@@ -1,0 +1,110 @@
+<section id="home" class="hero relative overflow-hidden flex items-center min-h-screen pt-28 pb-24">
+  <!-- backdrops -->
+  <div class="absolute inset-0 grid-backdrop opacity-70 pointer-events-none"></div>
+  <div class="absolute inset-0 noise-overlay"></div>
+  <div class="absolute top-1/3 -left-32 w-[480px] h-[480px] rounded-full blur-[140px] opacity-30"
+       style="background: radial-gradient(circle, #00f5ff 0%, transparent 70%);"></div>
+  <div class="absolute bottom-0 right-0 w-[520px] h-[520px] rounded-full blur-[160px] opacity-25"
+       style="background: radial-gradient(circle, #7b2fff 0%, transparent 70%);"></div>
+
+  <!-- floating shapes -->
+  <div class="hero-shape absolute top-[18%] left-[8%] w-16 h-16 border border-primary-500/40 rounded-lg rotate-12"></div>
+  <div class="hero-shape absolute top-[60%] left-[20%] w-10 h-10 border border-secondary-400/40 rotate-45"></div>
+  <div class="hero-shape absolute top-[25%] right-[18%] w-20 h-20 border-2 border-primary-500/30 rounded-full"></div>
+  <div class="hero-shape absolute bottom-[15%] right-[10%] w-12 h-12 border border-accent-400/40 rotate-12"></div>
+
+  <div class="container-custom relative z-10 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+    <div class="lg:col-span-7 space-y-7">
+      <div class="hero-eyebrow inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-soft glass">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-500"></span>
+        </span>
+        <span class="font-mono text-xs text-[var(--c-text-muted)]">{{ availability.label }}</span>
+      </div>
+
+      <h1 class="hero-title font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[0.95]">
+        <span class="block text-[var(--c-text)]">Hi, I'm</span>
+        <span class="block text-gradient">{{ personalInfo.name }}.</span>
+      </h1>
+
+      <div class="hero-typed-line font-mono text-lg sm:text-xl text-[var(--c-text-muted)] min-h-[1.5em]">
+        <span class="text-primary-400">const</span>
+        <span class="text-[var(--c-text)]"> role</span>
+        <span class="text-primary-400"> = </span>
+        <span class="text-accent-400">'{{ typed() }}'</span><span class="cursor"></span>
+      </div>
+
+      <p class="hero-bio max-w-xl text-lg text-[var(--c-text-muted)] leading-relaxed">
+        {{ personalInfo.subtitle }} Currently building AI-powered platforms at Wattmonk that cut order time by 70% and replace AutoCAD with a browser-native drafting tool.
+      </p>
+
+      <div class="hero-cta flex flex-wrap items-center gap-4">
+        <a href="#projects" class="btn-primary">
+          <span>View My Work</span>
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a [href]="personalInfo.resumeUrl" target="_blank" class="btn-outline">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Download Resume
+        </a>
+      </div>
+
+      <div class="hero-meta flex flex-wrap items-center gap-6 pt-2 text-sm font-mono">
+        <a [href]="contact.linkedin" target="_blank" class="text-[var(--c-text-muted)] hover:text-primary-400 inline-flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/></svg>
+          linkedin/in/Himmanshu-Sharma
+        </a>
+        <a [href]="'mailto:' + contact.email" class="text-[var(--c-text-muted)] hover:text-primary-400 inline-flex items-center gap-2 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          {{ contact.email }}
+        </a>
+        <span class="text-[var(--c-text-muted)] inline-flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          {{ contact.location }}
+        </span>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 hero-visual">
+      <div #orb class="visual-stage relative mx-auto w-[340px] sm:w-[420px] aspect-square">
+        <!-- rotating outer ring -->
+        <div class="ring-outer animate-spin-slow"></div>
+        <div class="ring-inner"></div>
+
+        <!-- portrait -->
+        <div class="portrait absolute inset-12 rounded-full overflow-hidden">
+          <img [src]="personalInfo.image" [alt]="personalInfo.name"
+               class="w-full h-full object-cover"/>
+        </div>
+
+        <!-- floating chips -->
+        <div class="chip absolute -top-2 -right-2 glass px-3 py-2 rounded-xl">
+          <p class="font-mono text-[10px] text-[var(--c-text-muted)]">years</p>
+          <p class="font-display font-bold text-xl text-gradient">4+</p>
+        </div>
+        <div class="chip absolute bottom-4 -left-4 glass px-3 py-2 rounded-xl">
+          <p class="font-mono text-[10px] text-[var(--c-text-muted)]">users reached</p>
+          <p class="font-display font-bold text-xl text-accent-400">70K+</p>
+        </div>
+        <div class="chip absolute -bottom-4 right-6 glass px-3 py-2 rounded-xl">
+          <p class="font-mono text-[10px] text-[var(--c-text-muted)]">shipped</p>
+          <p class="font-display font-bold text-xl text-secondary-400">14+</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- scroll indicator -->
+  <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--c-text-muted)]">
+    <span class="font-mono text-[10px] uppercase tracking-[0.3em]">scroll</span>
+    <span class="w-5 h-9 border border-soft rounded-full flex justify-center pt-1.5">
+      <span class="w-1 h-1.5 bg-primary-400 rounded-full animate-bounce"></span>
+    </span>
+  </a>
+</section>

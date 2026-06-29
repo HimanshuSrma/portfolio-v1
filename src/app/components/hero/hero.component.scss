@@ -1,0 +1,53 @@
+:host { display: block; }
+
+.hero {
+  background: radial-gradient(ellipse at top, rgba(0, 245, 255, 0.06) 0%, transparent 60%);
+}
+
+.visual-stage {
+  transition: transform .25s ease-out;
+  will-change: transform;
+}
+
+.ring-outer,
+.ring-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+.ring-outer {
+  border: 1px dashed rgba(0, 245, 255, 0.4);
+  -webkit-mask: linear-gradient(135deg, black 50%, transparent 50%);
+          mask: linear-gradient(135deg, black 50%, transparent 50%);
+}
+.ring-inner {
+  inset: 6px;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #00f5ff, #7b2fff) border-box;
+  -webkit-mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  box-shadow: 0 0 80px rgba(0, 245, 255, 0.35);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 60px rgba(0, 245, 255, 0.3); }
+  50%      { box-shadow: 0 0 100px rgba(123, 47, 255, 0.5); }
+}
+
+.portrait {
+  background: linear-gradient(180deg, #0d0d14, #050507);
+  border: 2px solid rgba(0, 245, 255, 0.2);
+  box-shadow: 0 30px 80px -10px rgba(0, 245, 255, 0.3);
+}
+
+.chip { animation: float 7s ease-in-out infinite; }
+.chip:nth-child(odd) { animation-delay: -2s; }
+.chip:nth-child(3n) { animation-delay: -4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}

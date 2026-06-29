@@ -1,0 +1,40 @@
+<section id="skills" class="section-padding relative overflow-hidden">
+  <div class="container-custom">
+    <div class="max-w-3xl mb-16">
+      <p class="skills-eyebrow section-eyebrow">02 — Stack</p>
+      <h2 class="skills-title section-title-xl mb-5">
+        The toolkit behind the <span class="text-gradient">pixels</span>.
+      </h2>
+      <p class="skills-subtitle text-lg text-[var(--c-text-muted)] leading-relaxed">
+        Twenty-five plus technologies, sharpened over four years and several flagship products.
+      </p>
+    </div>
+  </div>
+
+  <!-- marquee -->
+  <div class="marquee-mask py-10 mb-16 border-y border-soft bg-soft/30">
+    <div class="marquee-track animate-marquee">
+      <div *ngFor="let s of marqueeSkills" class="marquee-cell" [title]="s.name">
+        <img *ngIf="s.svg" [src]="s.svg" [alt]="s.name" loading="lazy"/>
+        <span class="font-mono text-xs text-[var(--c-text-muted)] hidden md:inline">{{ s.name }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-custom">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let group of groups" class="skill-group card p-6">
+        <div class="flex items-center justify-between mb-5">
+          <h3 class="font-display font-semibold text-lg text-[var(--c-text)]">{{ group.label }}</h3>
+          <span class="font-mono text-xs text-[var(--c-text-dim)]">{{ group.skills.length }} tools</span>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <div *ngFor="let s of group.skills" class="skill-pill">
+            <img *ngIf="s.svg" [src]="s.svg" [alt]="s.name" class="w-4 h-4"/>
+            <span class="font-mono text-xs">{{ s.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

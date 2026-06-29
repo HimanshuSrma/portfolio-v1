@@ -1,0 +1,21 @@
+:host { display: block; }
+
+.pillar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0,245,255,0.15), rgba(123,47,255,0.15));
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  color: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.stat-item {
+  transition: transform .3s ease, border-color .3s ease;
+}
+.stat-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 245, 255, 0.4);
+}

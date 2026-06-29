@@ -1,0 +1,66 @@
+<section id="testimonials" class="section-padding relative overflow-hidden bg-soft">
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-500/40 to-transparent"></div>
+  <div class="absolute -top-32 right-1/4 w-[400px] h-[400px] rounded-full blur-[140px] opacity-20 pointer-events-none"
+       style="background: radial-gradient(circle, #7b2fff 0%, transparent 70%);"></div>
+
+  <div class="container-custom relative">
+    <div class="max-w-3xl mb-14">
+      <p class="t-eyebrow section-eyebrow">07 — Praise</p>
+      <h2 class="t-title section-title-xl mb-5">
+        Receipts from the <span class="text-gradient">teams I've built with</span>.
+      </h2>
+      <p class="t-subtitle text-lg text-[var(--c-text-muted)] leading-relaxed">
+        What collaborators, mentors and stakeholders have said about working alongside me.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article *ngFor="let idx of visibleIndices()" class="testimonial-card glass">
+        <div class="quote-mark" aria-hidden="true">"</div>
+
+        <div class="flex items-center gap-1 mb-4">
+          <svg *ngFor="let _ of [].constructor(testimonials[idx]?.rating || 5); let i = index"
+               class="w-4 h-4 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.364 1.118l1.286 3.957c.3.922-.755 1.688-1.54 1.118L10 14.347l-3.366 2.446c-.784.57-1.838-.196-1.539-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.65 8.385c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.951-.69l1.286-3.957z"/>
+          </svg>
+        </div>
+
+        <blockquote class="quote-text">
+          {{ testimonials[idx]?.content }}
+        </blockquote>
+
+        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-soft">
+          <img [src]="testimonials[idx]?.avatar"
+               (error)="setFallback($event)"
+               [alt]="testimonials[idx]?.name"
+               loading="lazy"
+               class="w-12 h-12 rounded-full object-cover border-2 border-primary-500/30"/>
+          <div>
+            <h4 class="font-display font-semibold text-[var(--c-text)]">{{ testimonials[idx]?.name }}</h4>
+            <p class="font-mono text-xs text-[var(--c-text-muted)]">
+              {{ testimonials[idx]?.role }} <span class="text-primary-400">·</span> {{ testimonials[idx]?.company }}
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="flex items-center justify-between mt-10">
+      <button (click)="goToPrevious()" class="carousel-btn" aria-label="Previous">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 18l-6-6 6-6"/></svg>
+      </button>
+
+      <div class="flex items-center gap-2">
+        <button *ngFor="let t of testimonials; let i = index"
+                (click)="goToSlide(i)"
+                [class.active]="i === currentIndex"
+                class="dot"
+                [attr.aria-label]="'Slide ' + (i + 1)"></button>
+      </div>
+
+      <button (click)="goToNext()" class="carousel-btn" aria-label="Next">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,102 @@
+<section id="projects" class="section-padding relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary-500/40 to-transparent"></div>
+
+  <div class="container-custom relative">
+    <div class="max-w-3xl mb-12">
+      <p class="projects-eyebrow section-eyebrow">05 — Projects</p>
+      <h2 class="projects-title section-title-xl mb-5">
+        Selected work, shipped to <span class="text-gradient">real users</span>.
+      </h2>
+      <p class="projects-subtitle text-lg text-[var(--c-text-muted)] leading-relaxed">
+        Flagship products spanning solar AI, sports federations, insurance loyalty &amp; HR engagement.
+        Tap any card for the full case study.
+      </p>
+    </div>
+
+    <div class="projects-filters flex flex-wrap items-center gap-2 mb-10">
+      <span class="font-mono text-xs text-[var(--c-text-dim)] mr-2">$ filter:</span>
+      <button *ngFor="let f of filters"
+              (click)="setFilter(f)"
+              class="filter-pill"
+              [class.active]="activeFilter() === f">
+        {{ f }}
+      </button>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+      <article *ngFor="let p of visibleProjects(); let i = index"
+               #tiltCard
+               class="project-card card group relative cursor-pointer overflow-hidden"
+               (mousemove)="onTilt($event, tiltCard)"
+               (mouseleave)="onTiltOut(tiltCard)"
+               (click)="openProject(p)">
+
+        <div class="aspect-[16/10] overflow-hidden relative">
+          <img [src]="p.image" [alt]="p.title" loading="lazy"
+               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="img-fade"></div>
+          <div class="absolute top-3 left-3 flex gap-2">
+            <span class="status-pill">{{ p.status }}</span>
+          </div>
+          <div class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-400 flex items-center justify-between">
+            <span class="font-mono text-xs text-primary-300">→ open case study</span>
+            <span class="w-8 h-8 rounded-full border border-primary-400/60 inline-flex items-center justify-center text-primary-300">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <p class="font-mono text-[10px] uppercase tracking-widest text-[var(--c-text-dim)] mb-2">
+            // {{ p.category }} · id: {{ p.id }}
+          </p>
+          <h3 class="font-display font-semibold text-lg text-[var(--c-text)] mb-2 leading-snug">
+            {{ p.title }}
+          </h3>
+          <p class="text-sm text-[var(--c-text-muted)] line-clamp-3 mb-4">{{ p.description }}</p>
+
+          <div class="flex flex-wrap gap-1.5">
+            <span *ngFor="let t of p.technologies.slice(0, 4)" class="tech-mini">{{ t }}</span>
+            <span *ngIf="p.technologies.length > 4" class="tech-mini opacity-60">+{{ p.technologies.length - 4 }}</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div *ngIf="!visibleProjects().length" class="text-center py-16 font-mono text-sm text-[var(--c-text-muted)]">
+      No projects match this filter yet — try another tag.
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div *ngIf="selectedProject() as p" class="project-modal" (click)="closeProject()">
+    <div class="project-modal-panel" (click)="$event.stopPropagation()">
+      <button class="project-modal-close" (click)="closeProject()" aria-label="Close">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M6 18L18 6"/></svg>
+      </button>
+
+      <div class="aspect-[16/8] overflow-hidden relative">
+        <img [src]="p.image" [alt]="p.title" class="w-full h-full object-cover"/>
+        <div class="img-fade"></div>
+      </div>
+
+      <div class="p-8 md:p-10">
+        <p class="font-mono text-[10px] uppercase tracking-widest text-primary-300 mb-2">// case study · {{ p.category }}</p>
+        <h3 class="font-display font-bold text-3xl text-[var(--c-text)] mb-4 leading-tight">{{ p.title }}</h3>
+        <p class="text-[var(--c-text-muted)] leading-relaxed mb-7">{{ p.description }}</p>
+
+        <h4 class="font-mono text-xs uppercase tracking-widest text-[var(--c-text-dim)] mb-3">Highlights</h4>
+        <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+          <li *ngFor="let f of p.features" class="flex items-start gap-2.5 text-sm text-[var(--c-text)]">
+            <span class="text-accent-400 mt-0.5">▸</span><span>{{ f }}</span>
+          </li>
+        </ul>
+
+        <h4 class="font-mono text-xs uppercase tracking-widest text-[var(--c-text-dim)] mb-3">Stack</h4>
+        <div class="flex flex-wrap gap-2 mb-2">
+          <span *ngFor="let t of p.technologies" class="tech-chip">{{ t }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

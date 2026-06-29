@@ -1,0 +1,37 @@
+<section id="education" class="section-padding relative overflow-hidden">
+  <div class="container-custom">
+    <div class="max-w-3xl mb-14">
+      <p class="edu-eyebrow section-eyebrow">04 — Education</p>
+      <h2 class="edu-title section-title-xl mb-5">
+        Where the <span class="text-gradient">foundation</span> was laid.
+      </h2>
+      <p class="edu-subtitle text-lg text-[var(--c-text-muted)] leading-relaxed">
+        Computer Science roots that shaped how I think about systems, data, and problem-solving.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div *ngFor="let edu of education" class="edu-card card p-7 relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary-500/10 blur-2xl"></div>
+
+        <div class="relative z-10">
+          <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-secondary-500/10 text-secondary-300 border border-secondary-500/30 inline-block mb-4">
+            {{ edu.startDate }} → {{ edu.endDate }}
+          </span>
+          <h3 class="font-display font-bold text-xl text-[var(--c-text)] mb-1">{{ edu.degree }}</h3>
+          <h4 class="font-mono text-sm text-primary-300">{{ edu.institution }}</h4>
+
+          <p *ngIf="edu.location" class="text-sm text-[var(--c-text-muted)] mt-3 inline-flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+            {{ edu.location }}
+          </p>
+          <p *ngIf="edu.description" class="text-sm text-[var(--c-text-muted)] mt-3">{{ edu.description }}</p>
+        </div>
+
+        <svg class="absolute bottom-5 right-5 w-12 h-12 text-primary-500/10" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
