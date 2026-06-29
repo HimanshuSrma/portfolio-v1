@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, signal, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class LoaderComponent implements OnInit {
   @Output() finished = new EventEmitter<void>();

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ViewEncapsulation } from '@angular/core';
 // import { testimonials } from '../../data/testimonials'; // same data as in React
 // import { Testimonial } from '../../types'; // interface
 
@@ -9,6 +9,7 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
   templateUrl: 'testimonials.component.html',
   styleUrls: ['testimonials.component.scss'],
   imports: [CommonModule],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TestimonialsSectionComponent implements OnInit, OnDestroy {
   // export class TestimonialsSectionComponent implements OnInit, OnDestroy {

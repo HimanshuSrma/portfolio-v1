@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, computed, ElementRef, HostListener, inject, OnInit, signal, ViewChildren, QueryList } from '@angular/core';
+import { AfterViewInit, Component, computed, ElementRef, HostListener, inject, OnInit, signal, ViewChildren, QueryList, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 import { Project } from '../../models/portfolio.model';
@@ -11,6 +11,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   imports: [CommonModule],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
   private portfolioService = inject(PortfolioDataService);

@@ -218,6 +218,7 @@ export class PortfolioDataService {
 
       // Backend (often used with frontend)
       { "name": "Node.js", "category": "backend", "svg": "../../../assets/icons/nodejs.svg", "icon": "devicon-nodejs-plain colored" },
+      { "name": "Express.js", "category": "backend", "svg": "../../../assets/icons/expressjs.svg", "icon": "devicon-expressjs-plain colored" },
       { "name": "Firebase", "category": "backend", "svg": "../../../assets/icons/firebase.svg" },
 
       // Package & Version Control

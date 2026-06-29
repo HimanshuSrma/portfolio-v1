@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ViewEncapsulation } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { gsap } from 'gsap';
@@ -23,6 +23,7 @@ gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-root',
   standalone: true,
+  encapsulation: ViewEncapsulation.None,
   imports: [
     CommonModule,
     LoaderComponent,

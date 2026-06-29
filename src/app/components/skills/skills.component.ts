@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 import { Skill } from '../../models/portfolio.model';
@@ -13,6 +13,7 @@ interface SkillGroup { key: string; label: string; skills: Skill[]; }
   imports: [CommonModule],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SkillsComponent implements OnInit, AfterViewInit {
   private portfolioService = inject(PortfolioDataService);

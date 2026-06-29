@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, AfterViewInit } from '@angular/core';
+import { Component, inject, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
@@ -12,6 +12,7 @@ import { ContactFormData } from '../../models/portfolio.model';
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ["./contact.component.scss"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ContactComponent implements OnInit, AfterViewInit {
   

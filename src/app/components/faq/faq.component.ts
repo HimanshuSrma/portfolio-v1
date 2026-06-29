@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject, OnInit, signal } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 import { gsap } from 'gsap';
@@ -10,6 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   imports: [CommonModule],
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FaqComponent implements OnInit, AfterViewInit {
   private portfolioService = inject(PortfolioDataService);

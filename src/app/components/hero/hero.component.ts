@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, inject, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, inject, OnDestroy, OnInit, signal, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
 import { gsap } from 'gsap';
@@ -9,6 +9,7 @@ import { gsap } from 'gsap';
   imports: [CommonModule],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   private portfolioService = inject(PortfolioDataService);
